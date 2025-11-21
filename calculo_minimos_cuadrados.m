@@ -7,7 +7,7 @@ close all
 %%%%%%%%%% VECTOR DATA ARE LOADED %%%%%%%%%%
 %data = readmatrix('datos_minimos.csv');
 %data = readmatrix('datos_escalon.csv');
-data = readmatrix('FrED_dataRes.txt');
+data = readmatrix('FrED_data.txt');
 time = data(:,1);           % time
 rpm = ((2*pi)/60)*data(:,2);            % speed
 %rpm = data(:,2);            % speed
@@ -52,9 +52,9 @@ sb2 = ((theta_SZ(3)+theta_SZ(4)+theta_SZ(5))/(1-theta_SZ(1)+theta_SZ(2)))*(4/Tm^
 sa0 = ((1-theta_SZ(2))/(1-theta_SZ(1)+theta_SZ(2)))*(4/Tm);
 sa1 = ((1+theta_SZ(1)+theta_SZ(2))/(1-theta_SZ(1)+theta_SZ(2)))*(4/Tm^2);
 
-% Mostrar función de transferencia estimada
-fprintf('\nFunción de transferencia estimada segundo orden (rad/s/V):\n');
-fprintf('G(s) = %.4fs^2 + %.4f s + %.4f / (s^2 + %.4f s + %.4f)\n', sb0, sb1, sb2, sa0, sa1);
+%% Mostrar función de transferencia estimada
+%fprintf('\nFunción de transferencia estimada segundo orden (rad/s/V):\n');
+%fprintf('G(s) = %.4fs^2 + %.4f s + %.4f / (s^2 + %.4f s + %.4f)\n', sb0, sb1, sb2, sa0, sa1);
 
 
 
@@ -119,24 +119,24 @@ figure(1);
 plot(time, rpm, 'b', 'LineWidth', 1.5); hold on;
 plot(time, yF, 'm--', 'LineWidth', 1.5); hold on;
 plot(time, yS, 'c--', 'LineWidth', 1.5); hold on;
-plot(time, ySZ, 'r--', 'LineWidth', 1.5); hold on;
+%plot(time, ySZ, 'r--', 'LineWidth', 1.5); hold on;
 legend('Speed motor', 'First order estimation', ...
-                    'Second order estimation', 'Second order estimation 2');
+                    'Second order estimation');
 xlabel('Time (s)');
 ylabel('Speed (rad/s)');
 title('Estimation system');
 grid on;
 
-figure(2);
-plot(time, rpm, 'b', 'LineWidth', 1.5); hold on;
-plot(time, yFt, 'm--', 'LineWidth', 1.5); hold on;
-plot(time, ySt, 'c--', 'LineWidth', 1.5); hold on;
+%figure(2);
+%plot(time, rpm, 'b', 'LineWidth', 1.5); hold on;
+%plot(time, yFt, 'm--', 'LineWidth', 1.5); hold on;
+%plot(time, ySt, 'c--', 'LineWidth', 1.5); hold on;
 %plot(time, ySt2, 'r--', 'LineWidth', 1.5); hold on;
-legend('Speed motor', 'First order estimation', 'Second order estimation');
-xlabel('Time (s)');
-ylabel('Speed (rad/s)');
-title('Estimation system');
-grid on;
+%legend('Speed motor', 'First order estimation', 'Second order estimation');
+%xlabel('Time (s)');
+%ylabel('Speed (rad/s)');
+%title('Estimation system');
+%grid on;
 
 
 
